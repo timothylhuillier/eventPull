@@ -1,10 +1,12 @@
 // Copyright (c) 2012 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
+/*
 chrome.extension.getBackgroundPage().getContacts();
+
 var contacts = chrome.extension.getBackgroundPage().contacts;
 var output = document.getElementById('output');
+
 for (var i = 0, contact; contact = contacts[i]; i++) {
   var div = document.createElement('div');
   var pName = document.createElement('p');
@@ -22,6 +24,7 @@ for (var i = 0, contact; contact = contacts[i]; i++) {
   div.appendChild(ulEmails);
   output.appendChild(div);
 }
+/*
 
 function logout() {
   chrome.extension.getBackgroundPage().logout();
@@ -31,3 +34,4 @@ function logout() {
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#clear').addEventListener('click', logout);
 });
+*/

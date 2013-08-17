@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+ * Copyright (c) 2009 The Chromium Authors. All rights reserved.  Use of this
+ * source code is governed by a BSD-style license that can be found in the
+ * LICENSE file.
+-->
+<html>
+  <head>
+    <title>EventPull</title>
+    <style type="text/css">
+      body {
+        font: 14px Arial;
+      }
+      p {
+        font-weight: bold;
+      }
+      #output {
+        height: 100px;
+      }
+    </style>
+
+    <script type="text/javascript" src="src/jquery.min.js"></script>
+    <script type="text/javascript" src="src/jquery.tokeninput.js"></script>
+    <script type="text/javascript" src="src/tokeninput_helper.js"></script>
+
+    <link rel="stylesheet" href="styles/token-input.css" type="text/css" />
+    <link rel="stylesheet" href="styles/token-input-facebook.css" type="text/css" />
+
+  </head>
+  <body>
+    <h1>Event name</h1>
+    <h2>3PM - Notman House</h2>
+    <div>
+        <input type="text" id="demo-input-local-custom-formatters" name="blah" />
+        <input type="button" value="Poll" />
+    </div>
+    <div id="output">
+    </div>
+
+    <script src="pop_up.js"></script>
+  </body>
+</html>

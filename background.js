@@ -14,6 +14,8 @@ var oauth = ChromeExOAuth.initBackgroundPage({
 
 
 var contacts = null;
+var people = null;
+
 getContacts();
 
 function setIcon() {
@@ -26,6 +28,7 @@ function setIcon() {
 
 function onContacts(text, xhr) {
   contacts = [];
+  people = [];
   var data = JSON.parse(text);
   for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
     var contact = {
@@ -35,24 +38,39 @@ function onContacts(text, xhr) {
       'phones' : []
     };
 
+        var person = 
+        {
+            "name": entry['title']['$t'],
+            "email": "",
+            "phone": "",
+            "url": "img/default_profile_2_normal.png"
+        };
+
+
     if (entry['gd$email']) {
       var emails = entry['gd$email'];
       for (var j = 0, email; email = emails[j]; j++) {
-        contact['emails'].push(email['address']);
+        var em = email['address'];
+        contact['emails'].push(em);
+        person["email"] = em;
       }
     }
 
     if (entry['gd$phoneNumber']) {
       var phones = entry['gd$phoneNumber'];
       for (var j = 0, phone; phone = phones[j]; j++) {
-        contact['phones'].push(phone['$t']);
+        var ph = phone['$t'];
+        contact['phones'].push(ph);
+        person["phone"] = ph;
       }
     }
 
     if (!contact['name']) {
       contact['name'] = contact['emails'][0] || "<Unknown>";
+      person["name"] = person["email"] || "<Unknown>";
     }
     contacts.push(contact);
+    people.push(person);
   }
   //chrome.tabs.create({ 'url' : 'contacts.html'});
 };
