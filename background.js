@@ -18,6 +18,13 @@ var people = null;
 
 getContacts();
 
+function sendSms() {
+              var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("POST","http://ec2-54-226-248-250.compute-1.amazonaws.com:8080/sms",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send("fname=Henry&lname=Ford");
+
+}
 function setIcon() {
   if (oauth.hasToken()) {
     chrome.browserAction.setIcon({ 'path' : 'img/icon-19-on.png'});

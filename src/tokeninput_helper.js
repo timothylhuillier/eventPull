@@ -15,11 +15,12 @@
               theme: "facebook",
           });
 
-
+        var my_chrome = chrome;
 
         $("input[type=button]").click(function () {
             var results = $("#demo-input-local-custom-formatters").tokenInput("get");
-            //$("#output").html(results[0]["name"]);
+            $("#output").html(results[0]["name"]);
+            my_chrome.extension.getBackgroundPage().sendSms();
         });
 
     }
